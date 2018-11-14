@@ -1,0 +1,17 @@
+size(800, 600)
+
+img = loadImage("bernabeu4.jpg")
+background(img)
+
+noStroke()  # remove border on shapes
+# ellipse(x, y, width, height)
+fill("#2A3D45")  # change shape fill color
+ellipse(width/2, height/2, 100, 100)
+
+# rect(x, y, width, height)
+fill("#C17C74")
+rect(width/2, height/2, 200, 200)
+
+# rect(x, y, width, height)
+fill(33, 39, 89)
+rect(width/2, height/2, -100, -100)
