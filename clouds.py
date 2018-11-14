@@ -1,21 +1,34 @@
-x = 0
+click_number = 0
+
 
 def setup():
-    size(640, 480)
-
+    size(800, 600)
+    
+    img = loadImage("santiangober8.jpg")
+    background(img)
 
 def draw():
-    global x
+    global click_number
+    noStroke()  # remove border on shapes
+    # ellipse(x, y, width, height)
+    fill("#2A3D45")  # change shape fill color
+    ellipse(width/2, height/2, 100, 100)
     
-    if x >= 640:
-        x = 0
-    x += 3
+    # rect(x, y, width, height)
+    fill("#C17C74")
+    rect(width/2, height/2, 200, 200)
     
-    background(135, 206, 250)  # sky blue
-    
-    # cloud
-    noStroke()
-    ellipse(x, height/2, 50, 50)
-    ellipse(x+30, height/2, 50, 50)
-    ellipse(x+10, height/2-20, 50, 50)
+    # rect(x, y, width, height)
+    if click_number == 0:
+        fill(33, 39, 89)
+    else:
+        fill(0)
+    rect(width/2, height/2, -100, -100)
 
+
+def mouseClicked():
+    global click_number
+    click_number += 1
+    if click_number == 2:
+        click_number = 0
+        
