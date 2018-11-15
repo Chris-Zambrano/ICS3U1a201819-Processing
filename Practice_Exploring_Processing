@@ -4,7 +4,7 @@ click_number = 0
 def setup():
     size(800, 600)
     
-    img = loadImage("santiangober8.jpg")
+    img = loadImage("bernadeu4.jpg")
     background(img)
 
 def draw():
