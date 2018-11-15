@@ -1,22 +1,29 @@
 click_number = 0
 
+delta_x = 100
+delta_y = 100
+cloud_speed_x = 6
+cloud_speed_y = 4
+
+x = 0
 
 def setup():
     size(800, 600)
     
-    img = loadImage("bernadeu4.jpg")
+    img = loadImage("bernabeu4.jpg")
     background(img)
 
 def draw():
     global click_number
+    global delta_x, delta_y, cloud_speed_x, cloud_speed_y
     noStroke()  # remove border on shapes
     # ellipse(x, y, width, height)
     fill("#2A3D45")  # change shape fill color
-    ellipse(width/2, height/2, 100, 100)
+    ellipse(width/3, height/3, 100, 100)
     
     # rect(x, y, width, height)
     fill("#C17C74")
-    rect(width/2, height/2, 200, 200)
+    rect(width/4, height/4, -200, -200)
     
     # rect(x, y, width, height)
     if click_number == 0:
@@ -25,10 +32,23 @@ def draw():
         fill(0)
     rect(width/2, height/2, -100, -100)
 
+    #Bouncing Cloud
+    noStroke()
+    fill(124, 19, 23)
+    ellipse(x, height/2, 50, 50)
+    ellipse(x+30, height/2, 50, 50)
+    ellipse(x-10, height/2-20, 50, 50)
+
+    delta_x += cloud_speed_x
+    delta_y += cloud_speed_y
+    print(delta_x)
+    if delta_x <= 100 or delta_x >= 600:
+        cloud_speed_x *= -1
+    elif delta_y <= 100 or delta_y >= 600:
+        cloud_speed_y *= -1
 
 def mouseClicked():
     global click_number
     click_number += 1
     if click_number == 2:
         click_number = 0
-        
