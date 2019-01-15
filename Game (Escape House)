@@ -1,0 +1,33 @@
+welcome_page = True
+home_page = False
+
+
+def setup():
+    size(700, 700)
+
+
+def draw():
+    global welcome_page, home_page
+    if welcome_page:
+        background(255)
+            
+        textAlign(CENTER)        
+        textSize(35)
+        fill(0)
+        text("The Escape House",width/2, width/2)
+    elif home_page:
+        background(0)
+        
+        textAlign(BOTTOM)
+        textSize(35)
+        fill(255)
+        text("Start Journey", width/2, height/2)
+        text("Instructions", width/2, height/2 + 100)
+    elif click_num == 1:
+        background(0)
+
+def mouseClicked():
+    global welcome_page, home_page
+    if welcome_page:
+        welcome_page = False
+        home_page = True
